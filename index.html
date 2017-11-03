@@ -1,1 +1,47 @@
-Hello world
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      html {
+        display: table;
+      }
+      body {
+        display: table-cell;
+        vertical-align: middle;
+        background-color: #001f3f;
+        color: hsla(210, 100%, 75%, 1.0);
+        font-family: 'Inconsolata', monospace;
+        font-size: 5em;
+      }
+      #seconds {
+        text-align: center;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version (Chrome and Opera) */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="seconds"></div>
+
+    <script type="text/javascript">
+      function updateSeconds(){
+        now = new Date();
+        start = new Date('3,21,1987,23:47:00');
+        difference = Math.floor((now-start) / 1000).toLocaleString();
+        document.getElementById("seconds").innerHTML = difference;
+        document.title = difference;
+      }
+      updateSeconds();
+      setInterval(updateSeconds, 1000);
+    </script>
+  </body>
+</html>
